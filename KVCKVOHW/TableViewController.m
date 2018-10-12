@@ -55,6 +55,20 @@
     student4.friend = self.student ;
     self.student.friend = student1;
     
+    //Grade
+    student1.grade = GradeTypeLow;
+    student2.grade = GradeTypeHigh;
+    student3.grade = GradeTypeLow;
+    student4.grade = GradeTypeMiddle;
+    self.student.grade = GradeTypeMiddle;
+    
+    //Birth Date
+    student1.birthDate = [NSDate dateWithTimeIntervalSinceNow: - arc4random_uniform(10000)];
+    student2.birthDate = [NSDate dateWithTimeIntervalSinceNow: - arc4random_uniform(10000)];
+    student3.birthDate = [NSDate dateWithTimeIntervalSinceNow: - arc4random_uniform(10000)];
+    student4.birthDate = [NSDate dateWithTimeIntervalSinceNow: - arc4random_uniform(10000)];
+    self.student.birthDate = [NSDate dateWithTimeIntervalSinceNow: - arc4random_uniform(10000)];
+    
     Group *group = [[Group alloc]init];
     group.students = @[student1,student2,student3,student4,self.student];
 
@@ -69,7 +83,18 @@
     [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.friend.friend.firstName"];
     [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.friend.friend.friend.firstName"];
 
+    NSLog(@"%@",[group valueForKeyPath:@"students.@count"]);
+
+    //Массив имен
+    NSArray *namesArray = [group valueForKeyPath:@"students.@unionOfObjects.firstName"];
+    NSLog(@"Names Array:%@",namesArray);
+    //Саммый поздний и саммый ранний годы рождения
+    NSLog(@"Birth Date MIN:%@",[group valueForKeyPath:@"students.@min.birthDate"]);
+    NSLog(@"Birth Date MAX:%@",[group valueForKeyPath:@"students.@max.birthDate"]);
     
+    //Сумма всех баллов студентов и средний бал всех студентов
+    NSLog(@"Average grage:%@",[group valueForKeyPath:@"students.@avg.grade"]);
+    NSLog(@"Sum grage:%@",[group valueForKeyPath:@"students.@sum.grade"]);
 }
 
 - (void)dealloc{
