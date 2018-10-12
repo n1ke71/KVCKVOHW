@@ -8,10 +8,12 @@
 
 #import "TableViewController.h"
 #import "Student.h"
+#import "Group.h"
 
 @interface TableViewController ()
 
 @property (strong,nonatomic) Student *student;
+
 @end
 
 @implementation TableViewController
@@ -20,6 +22,7 @@
     [super viewDidLoad];
     
     self.student = [[Student alloc] init];
+    
     [self.student addObserver:self
                    forKeyPath:@"firstName"
                       options:NSKeyValueObservingOptionNew
@@ -40,6 +43,33 @@
                    forKeyPath:@"grade"
                       options:NSKeyValueObservingOptionNew
                       context:nil];
+   
+    Student *student1 = [[Student alloc] init];
+    Student *student2 = [[Student alloc] init];
+    Student *student3 = [[Student alloc] init];
+    Student *student4 = [[Student alloc] init];
+  
+    student1.friend = student2;
+    student2.friend = student3;
+    student3.friend = student4;
+    student4.friend = self.student ;
+    self.student.friend = student1;
+    
+    Group *group = [[Group alloc]init];
+    group.students = @[student1,student2,student3,student4,self.student];
+
+    [group addObserver:self
+                   forKeyPath:@"students"
+                      options:NSKeyValueObservingOptionNew
+                      context:nil];
+    
+    [self setValue:@"Vasia" forKeyPath:@"student.friend.firstName"];
+    [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.firstName"];
+    [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.friend.firstName"];
+    [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.friend.friend.firstName"];
+    [self setValue:@"Vasia" forKeyPath:@"student.friend.friend.friend.friend.friend.firstName"];
+
+    
 }
 
 - (void)dealloc{
@@ -71,12 +101,12 @@
 
 - (IBAction)dateOfBirthTextField:(UITextField *)sender {
     
-     self.student.dateOfBirth = sender.text;
+    self.student.dateOfBirth = sender.text;
 }
 
 - (IBAction)genderSegmentedControl:(UISegmentedControl *)sender {
     
-        self.student.gender = sender.selectedSegmentIndex;
+    self.student.gender = sender.selectedSegmentIndex;
 }
 
 - (IBAction)gradeSegmentedControl:(UISegmentedControl *)sender {

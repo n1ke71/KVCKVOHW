@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) NSString *dateOfBirth;
 @property (assign,nonatomic) NSInteger gender;
 @property (assign,nonatomic) GradeType grade;
+@property (weak,nonatomic)   Student   *friend;
 
 - (void) cleanForm;
 

@@ -14,6 +14,7 @@
 		B389BE2E2165418F005FB025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B389BE2D2165418F005FB025 /* main.m */; };
 		B389BE3621654236005FB025 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = B389BE3521654236005FB025 /* Student.m */; };
 		B389BE3921654416005FB025 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B389BE3821654416005FB025 /* TableViewController.m */; };
+		B389BE4621710CB6005FB025 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = B389BE4521710CB6005FB025 /* Group.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		B389BE3521654236005FB025 /* Student.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		B389BE3721654416005FB025 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		B389BE3821654416005FB025 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B389BE4421710CB6005FB025 /* Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		B389BE4521710CB6005FB025 /* Group.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 		B389BE1D2165418D005FB025 /* KVCKVOHW */ = {
 			isa = PBXGroup;
 			children = (
+				B389BE4421710CB6005FB025 /* Group.h */,
+				B389BE4521710CB6005FB025 /* Group.m */,
 				B389BE3721654416005FB025 /* TableViewController.h */,
 				B389BE3821654416005FB025 /* TableViewController.m */,
 				B389BE3421654236005FB025 /* Student.h */,
@@ -148,6 +153,7 @@
 			files = (
 				B389BE2E2165418F005FB025 /* main.m in Sources */,
 				B389BE202165418D005FB025 /* AppDelegate.m in Sources */,
+				B389BE4621710CB6005FB025 /* Group.m in Sources */,
 				B389BE3621654236005FB025 /* Student.m in Sources */,
 				B389BE3921654416005FB025 /* TableViewController.m in Sources */,
 			);
